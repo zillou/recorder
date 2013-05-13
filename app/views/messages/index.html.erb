@@ -1,0 +1,11 @@
+<h1>Listing Messages</h1>
+
+<% @messages.each do |message| %>
+  <li>
+  <%= message.content %>
+  <%= message.send_at %>
+  <%= link_to 'Edit', edit_message_path(message) %>
+  </li>
+<% end %>
+
+<%= link_to 'Record a new message', new_message_path %>
