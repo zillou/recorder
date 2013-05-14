@@ -15,19 +15,23 @@ class Message < ActiveRecord::Base
 
   def set_timestamps
     self.created_at = Time.zone.now
-    self.send_at = Time.zone.parse(@date + ' ' + @time)
+    self.send_at = Time.zone.parse(@date.strftime("%Y-%m-%d") + ' ' + @time)
+  end
+
+  def to_s
+    "#{content} - #{send_at.to_date}"
   end
 
   def date
-    send_at.to_date if send_at
+    @date || send_at.to_date if send_at
   end
 
   def date=(date)
-    @date = date.strftime('%Y-%m-%d')
+    @date = date
   end
 
   def time
-    send_at.strftime('%H:%M:%S') if send_at
+    @time || send_at.strftime('%H:%M:%S') if send_at
   end
 
   def time=(time)

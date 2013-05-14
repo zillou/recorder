@@ -15,7 +15,10 @@ class MessagesController < ApplicationController
     @message = Message.new(params[:message])
 
     if @message.save
-      redirect_to @message, notice: "#{@message.to_s} created successfully."
+      logger.info "Pre message's date: #{@message.date}"
+      session[:pre_date] = @message.date
+
+      redirect_to new_message_path, notice: "#{@message.to_s} created successfully."
     else
       render :new
     end

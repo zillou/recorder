@@ -1,17 +1,17 @@
-<%= form_for @message do |f| %>
+%= form_for @message do |f| %>
   <div class="field">
     <%= f.label :content %><br />
     <%= f.text_area :content, rows: 3 %><br />
   </div>
 
   <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %><br />
+    <%= f.label :time %><br />
+    <%= f.text_field :time, placeholder: 'HH:MM:SS' %><br />
   </div>
 
   <div class="field">
-    <%= f.label :time %><br />
-    <%= f.text_field :time %><br />
+    <%= f.label :date %><br />
+    <%= f.date_select :date, default: session[:pre_date] || Date.today %><br />
   </div>
 
   <%= f.submit %>
