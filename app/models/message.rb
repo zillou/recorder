@@ -5,6 +5,12 @@ class Message < ActiveRecord::Base
 
   attr_accessor :date, :time
 
+  composed_of :date,
+    :class_name => 'Date',
+    :mapping => %w(Date to_s),
+    :constructor => Proc.new { |date| (date && date.to_date) || Date.today },
+    :converter => Proc.new { |value| value.to_s.to_date }
+
   validates_presence_of :content
 
   def set_timestamps
@@ -13,11 +19,11 @@ class Message < ActiveRecord::Base
   end
 
   def date
-    send_at.strftime('%Y-%m-%d') if send_at
+    send_at.to_date if send_at
   end
 
   def date=(date)
-    @date = date
+    @date = date.strftime('%Y-%m-%d')
   end
 
   def time
