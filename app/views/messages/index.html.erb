@@ -1,11 +1,34 @@
-<h1>Listing Messages</h1>
+<div class="row">
+<h2 class="text-center">Listing Messages</h2>
+<aside class="span2">
+  <div class="well">
+    <nav class="nav nav-list">
+      <li class="nav-header">Export</li>
+      <li><%= link_to 'CSV', messages_path(format: 'csv') %></li>
+      <li><%= link_to 'Excel', messages_path(format: 'xls') %></li>
+    </nav>
+  </div>
+</aside>
 
-<% @messages.each do |message| %>
-  <li>
-  <%= message.content %>
-  <%= message.send_at %>
-  <%= link_to 'Edit', edit_message_path(message) %>
-  </li>
-<% end %>
+<div class="span10">
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Message</th>
+      <th>Send at</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @messages.each do |message| %>
+      <tr>
+        <td><%= message.content %></td>
+        <td><%= message.send_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+        <td><%= link_to 'Update', edit_message_path(message), class: "btn btn-small btn-primary" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to 'Record a new message', new_message_path %>
+<%= link_to 'New message', new_message_path, class: 'btn btn-primary' %>
+</div>

@@ -12,7 +12,7 @@
       </Row>
     <% @messages.each do |message| %>
       <Row>
-        <Cell><Data ss:Type="String"><%= message.send_at.to_date %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= message.send_at.strftime('%Y-%m-%d %H:%M:%S') %></Data></Cell>
         <Cell><Data ss:Type="String"><%= message.content %></Data></Cell>
       </Row>
     <% end %>
