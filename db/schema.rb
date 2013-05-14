@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130514111153) do
+ActiveRecord::Schema.define(:version => 20130514114550) do
 
   create_table "messages", :force => true do |t|
     t.text     "content"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20130514111153) do
     t.datetime "updated_at",                         :null => false
   end
 
+  add_index "users", ["name"], :name => "index_users_on_name", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end

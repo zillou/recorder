@@ -5,6 +5,11 @@
       <div class="nav-collapse collapse" id="main-menu">
         <nav class="nav" id="main-menu-left">
           <li><%= link_to "Browse", messages_path %></li>
+          <% if current_user %>
+            <li><%= link_to "Sign Out", signout_path, method: :delete, confirm: "Are you sure?" %></li>
+          <% else %>
+            <li><%= link_to "Sign in", signin_path %></li>
+          <% end %>
         </nav>
       </div>
     </div>

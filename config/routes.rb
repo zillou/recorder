@@ -1,9 +1,13 @@
 Recorder::Application.routes.draw do
 
   get "home/index"
+
   resources :messages
+  resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'home#index'
+  match "/signin" => "sessions#new"
+  match "/signout" => "sessions#destroy", via: :delete
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
