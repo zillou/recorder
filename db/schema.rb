@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130513071141) do
+ActiveRecord::Schema.define(:version => 20130514111153) do
 
   create_table "messages", :force => true do |t|
     t.text     "content"
@@ -20,5 +20,16 @@ ActiveRecord::Schema.define(:version => 20130513071141) do
   end
 
   add_index "messages", ["content", "send_at"], :name => "index_messages_on_content_and_send_at", :unique => true
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.boolean  "is_admin",        :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end
