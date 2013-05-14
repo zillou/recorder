@@ -1,0 +1,4 @@
+Content,Send at
+<% @messages.each do |message| %>
+<%= message.content %>,<%= message.send_at.to_date %>
+<% end %>

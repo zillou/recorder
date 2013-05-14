@@ -1,6 +1,12 @@
 class MessagesController < ApplicationController
   def index
     @messages = Message.all
+
+    respond_to do |format|
+      format.html
+      format.csv
+      format.xls
+    end
   end
 
   def show
