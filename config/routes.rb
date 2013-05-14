@@ -1,11 +1,9 @@
 Recorder::Application.routes.draw do
 
-  get "home/index"
-
   resources :messages
   resources :sessions, only: [:new, :create, :destroy]
 
-  root to: 'home#index'
+  root to: 'messages#index'
   match "/signin" => "sessions#new"
   match "/signout" => "sessions#destroy", via: :delete
 
