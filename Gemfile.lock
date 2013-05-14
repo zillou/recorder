@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/rweng/jquery-datatables-rails.git
+  revision: 494f752b8eb8350f33841c822a67d014c869219f
+  specs:
+    jquery-datatables-rails (1.11.2)
+      jquery-rails
+
+GIT
   remote: https://github.com/zillou/bootswatch-rails
   revision: b4bdef01abfc5f3d7cbdbedf96916f73e8f740f1
   specs:
@@ -119,6 +126,7 @@ DEPENDENCIES
   bootstrap-sass (= 2.3)
   bootswatch-rails!
   coffee-rails (~> 3.2.1)
+  jquery-datatables-rails!
   jquery-rails
   pg
   rails (= 3.2.13)
