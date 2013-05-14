@@ -1,18 +1,26 @@
-%= form_for @message do |f| %>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content, rows: 3 %><br />
+<%= form_for @message, html: { class: "form-horizontal well" } do |f| %>
+  <div class="control-group">
+    <%= f.label :content, class: "control-label"  %>
+    <div class="controls">
+      <%= f.text_area :content, rows: 3, class: "input-xlarge" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :time %><br />
-    <%= f.text_field :time, placeholder: 'HH:MM:SS' %><br />
+  <div class="control-group">
+    <%= f.label :time, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :time, placeholder: 'HH:MM:SS' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date, default: session[:pre_date] || Date.today %><br />
+  <div class="control-group">
+    <%= f.label :date, class: "control-label" %>
+    <div class="controls">
+      <%= f.date_select :date, use_month_numbers: true, default: session[:pre_date] || Date.today %>
+    </div>
   </div>
 
-  <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
 <% end %>
