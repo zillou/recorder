@@ -5,7 +5,9 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+group :development, :test do
+  gem 'sqlite3'
+end
 
 gem 'bootswatch-rails', git: "https://github.com/zillou/bootswatch-rails"
 gem "bootstrap-sass", "2.3"
@@ -39,3 +41,7 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+group :product do
+  gem 'pg'
+end
