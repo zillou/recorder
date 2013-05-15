@@ -1,15 +1,6 @@
 <div class="row">
 <h2 class="text-center">Listing Messages</h2>
-<aside class="span2">
-  <div class="well">
-    <nav class="nav nav-list">
-      <li class="nav-header">Export</li>
-      <li><%= link_to 'CSV', messages_path(format: 'csv') %></li>
-      <li><%= link_to 'Excel', messages_path(format: 'xls') %></li>
-    </nav>
-  </div>
-</aside>
-
+<%= render 'side_nav' %>
 <div class="span10">
 <table id="messages" class="table table-bordered table-striped table-hover">
   <thead>
