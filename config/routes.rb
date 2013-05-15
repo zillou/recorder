@@ -1,5 +1,7 @@
 Recorder::Application.routes.draw do
 
+  resource :message_imports, only: [:new, :create]
+
   resources :messages
   resources :sessions, only: [:new, :create, :destroy]
 

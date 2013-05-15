@@ -44,4 +44,9 @@ class MessagesController < ApplicationController
       render :edit
     end
   end
+
+  def import
+    Product.import(params[:file])
+    redirect_to root_url, notice: "imported"
+  end
 end

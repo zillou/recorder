@@ -3,15 +3,6 @@ class Message < ActiveRecord::Base
   before_save :set_timestamps
   default_scope order('send_at DESC')
 
-  def self.to_csv
-    CSV.generate do |csv|
-      csv << column_names
-      all.each do |message|
-        csv << message.attributes.values_at(*column_names)
-      end
-    end
-  end
-
   attr_accessor :date, :time
 
   composed_of :date,
@@ -24,7 +15,7 @@ class Message < ActiveRecord::Base
 
   def set_timestamps
     self.created_at = Time.zone.now
-    self.send_at = Time.zone.parse(@date.strftime("%Y-%m-%d") + ' ' + @time)
+    self.send_at = Time.zone.parse(@date.strftime("%Y-%m-%d") + ' ' + @time) if send_at.nil?
   end
 
   def to_s

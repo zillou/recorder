@@ -1,10 +1,11 @@
-<aside class="span2">
+<aside class="span3">
   <div class="well">
     <nav class="nav nav-list">
       <li class="nav-header">Export</li>
       <li><%= link_to 'CSV', messages_path(format: 'csv') %></li>
       <li><%= link_to 'Excel', messages_path(format: 'xls') %></li>
-
+      <li class="nav-header">Import</li>
+      <li><%= link_to "Import", new_message_imports_path %></li>
     </nav>
   </div>
 </aside>

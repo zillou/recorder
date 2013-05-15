@@ -11,6 +11,7 @@ end
 
 gem 'bootswatch-rails', git: "https://github.com/zillou/bootswatch-rails"
 gem "bootstrap-sass", "2.3"
+gem 'roo'
 
 
 # Gems used only for assets and not required
